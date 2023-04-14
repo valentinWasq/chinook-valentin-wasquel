@@ -11,12 +11,12 @@ from django.utils import timezone
 
 from .models import Artist, Album, Track
 
-class IndexView(generic.ListView):
+def index(request):
     template_name = 'disks/Index.html'
-    context_object_name = 'all_Album'
+    context = {'all_Album': Album.objects.all()}
+    return render(request, template_name, context)
+    
 
-    def get_queryset(self):
-        return Album.objects.all
 
 class detailView(generic.DetailView):
     template_name = 'disks/detail.html'
