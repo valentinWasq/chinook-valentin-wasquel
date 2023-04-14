@@ -21,3 +21,8 @@ class IndexView(generic.ListView):
 class detailView(generic.DetailView):
     template_name = 'disks/detail.html'
     model = Album
+
+def recherche(request, rechercheText):
+    listAlbum = Album.objects.filter(title__contains=rechercheText)
+    context = {'recherche': rechercheText, 'selected_Album': listAlbum}
+    return render(request, 'disks/Recherche.html', context)
