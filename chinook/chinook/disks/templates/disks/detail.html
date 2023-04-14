@@ -15,20 +15,16 @@
         <h1>Album : {{ album.title }}</h1>
     </div>
     <div class="row">
-    <div class="container">
-        <ul>
             {% for track in album.track_set.all %}
-            <li>
+            <div class="col-6">
                 <h2>{{track.name}}</h2>
                 <ul>
                     <li> par : {{ track.composer }}</li>
                     <li> durée : {{ track.printDuration }}</li>
                     <li> prix : {{ track.unitPrice}}€</li>
                 </ul>
-            </li>
+            </div>
             {% endfor %}
-        </ul>
     </div>
-</div>
 </body>
 </html>
