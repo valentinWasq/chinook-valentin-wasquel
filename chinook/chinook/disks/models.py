@@ -16,3 +16,6 @@ class Track(models.Model):
     bytes = models.IntegerField(default=0)
     unitPrice = models.FloatField(default=0)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
+
+    def printDuration(self):
+        return str(int(self.milliseconds / 60000)) + ':' + str(int(self.milliseconds / 1000) % 60)
