@@ -13,6 +13,15 @@
 <body>
     <div class="container">
         <h1>Tout les albums</h1>
+    </div>
+    <div class="container-fluid">
+        <form action="{% url 'disks:Recherche' %}"  method="post">
+        {% csrf_token %}
+        {{ rechercheForm }}
+        <input type="submit">
+        </form>
+    </div>
+    <div class="container-fluid">
     {% if all_Album %}
         <ul>
         {% for album in all_Album %}

@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.index, name='Index'),
     # ex: /disks/5/
     path('<int:pk>/', views.detailView.as_view(), name='detail'),
+    # ex: /disks/Recherche/ methode post
+    path('Recherche/', views.checkRecherche, name='Recherche'),
     # ex: /disks/Recherche/Wild/
-    path('Recherche/<rechercheText>/', views.recherche, name='recherche')
+    path('Recherche/<rechercheText>/', views.recherche, name='RechercheResult'),
 ]
